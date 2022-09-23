@@ -41,11 +41,10 @@ public class Ejercicio26RepasoBucles {
 	}
 	
 	static void posicionDigito (String cad, int dig) {
-		int cadDig[] = new int[cad.length()];
+		System.out.println();
 		for (int i = 0; i < cad.length(); i++) {
-			System.out.println(cadDig[i]);
-			if (dig == cadDig[i])
-				System.out.println(i);
+			if (dig == Integer.valueOf(cad.substring(i, i+1)))
+				System.out.println("Dígito " + dig + " encontrado en posición: " + i);
 		}
 	}
 }
