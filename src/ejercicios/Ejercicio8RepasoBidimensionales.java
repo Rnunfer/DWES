@@ -23,5 +23,73 @@ public class Ejercicio8RepasoBidimensionales {
 				System.out.println("La posición sigue una regla de [a-h][1-8]");
 		} while (!salir);
 		
+		tablero = ponerPosibleMovimientos(tablero, pos);
+		dibujarTablero(tablero);
+	}
+	
+	static int[][] ponerAlfil(String posicion) {
+		int tablero[][] = new int[8][8];
+		
+		return tablero;
+	}
+	
+	static int[][] ponerPosibleMovimientos(int [][] tablero, String posicion) {
+		
+		int i = 0;
+		try {
+			while(true) {
+				tablero[Integer.valueOf(posicion.charAt(1))-49+i][(int)posicion.charAt(0) - 97+i] = 1;
+				i++;
+			}
+		} catch (Exception ex) {
+		}
+		
+		i=0;
+		try {
+			while(true) {
+				tablero[Integer.valueOf(posicion.charAt(1))-49+i][(int)posicion.charAt(0) - 97-i] = 1;
+				i++;
+			}
+		} catch (Exception ex) {
+		}
+		
+		i=0;
+		try {
+			while(true) {
+				tablero[Integer.valueOf(posicion.charAt(1))-49-i][(int)posicion.charAt(0) - 97+i] = 1;
+				i++;
+			}
+		} catch (Exception ex) {
+		}
+		
+		i=0;
+		try {
+			while(true) {
+				tablero[Integer.valueOf(posicion.charAt(1))-49-i][(int)posicion.charAt(0) - 97-i] = 1;
+				i++;
+			}
+		} catch (Exception ex) {
+		}
+		tablero[Integer.valueOf(posicion.charAt(1))-49][(int)posicion.charAt(0) - 97] = 2;
+		return tablero;
+	}
+	
+	static void dibujarTablero(int[][] tablero) {
+		int contador = 1;
+		System.out.println("  a b c d e f g h");
+		for (int[] i: tablero) {
+			System.out.print(contador + " ");
+			for(int j : i) {
+				if (j == 0)
+					System.out.print("  ");
+				else if (j == 1)
+					System.out.print("* ");
+				else
+					System.out.print("A ");
+			}
+			System.out.println(contador);
+			contador++;
+		}
+		System.out.println("  a b c d e f g h");
 	}
 }

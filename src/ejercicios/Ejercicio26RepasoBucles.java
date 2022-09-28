@@ -9,6 +9,7 @@ public class Ejercicio26RepasoBucles {
 		Scanner sc = new Scanner(System.in);
 		int num, dig;
 		String cadNum = "";
+		String solucion;
 		
 		// Se introduce el número
 		do {
@@ -35,16 +36,21 @@ public class Ejercicio26RepasoBucles {
 		} while (dig < 0 || dig > 9);
 		
 		// Se ve cuántas veces se ha repetido el dígito en el número
-		posicionDigito(cadNum, dig);
+		solucion = posicionDigito(cadNum, dig);
+		if (solucion.equalsIgnoreCase(""))
+			System.out.println("No se ha encontrado el dígito " + dig);
+		else
+			System.out.println(solucion);
 		sc.close();
 
 	}
 	
-	static void posicionDigito (String cad, int dig) {
-		System.out.println();
+	static String posicionDigito (String cad, int dig) {
+		String devolver = "";
 		for (int i = 0; i < cad.length(); i++) {
 			if (dig == Integer.valueOf(cad.substring(i, i+1)))
-				System.out.println("Dígito " + dig + " encontrado en posición: " + i);
+				devolver += "\nDígito " + dig + " encontrado en posición: " + i;
 		}
+		return devolver;
 	}
 }
